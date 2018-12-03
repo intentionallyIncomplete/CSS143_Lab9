@@ -16,8 +16,8 @@ public class InterfaceDriver {
 
     //comment and uncomment the demo functions in main to test
     public static void main(String[] args) {
-        comparableDemo();
-        //cloneableDemo();
+        //comparableDemo();
+        cloneableDemo();
         //serializableDemo();
         //actionListenerDemo();
     }
@@ -98,19 +98,21 @@ public class InterfaceDriver {
     
     public static void cloneableDemo() {
         Student a = new Student("Evan", 3.0);
-        Student c = (Student)a.clone();
+        Student c = a.clone();
         
         System.out.println(a);
         System.out.println(c);
         
-        System.out.println("Changing object a");
-        a.setName("Boo");
+        System.out.println("Changing object 'a'");
+        a.setName("Foo");
         a.setGPA(3.5);
         
         System.out.println(" new name: " + a.getName());
         System.out.println(" new GPA: " + a.getGPA());
-        System.out.println(" The object a: " + a);  
-        System.out.println(" The object c: " + c);  
+        System.out.println(" The object a (name): " + a.getName());  
+        System.out.println(" The object c (name): " + c.getName()); 
+        System.out.println(" The object a (gpa): " + a.getGPA());  
+        System.out.println(" The object c (gpa): " + c.getGPA()); 
     }
     
     

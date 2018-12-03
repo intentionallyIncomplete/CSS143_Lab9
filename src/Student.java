@@ -48,6 +48,13 @@ public class Student implements Serializable,Comparable<Student>,Cloneable {
 	}
 	
 	/*Goes with above method (helper constructor)*/
+	/**
+	 * @param newStudent - A new Student.
+	 */
+	public Student(Student newStudent) {
+		this.setName(newStudent.getName());
+		this.setGPA(newStudent.getGPA());
+	}
 
 	@SuppressWarnings("javadoc")
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
