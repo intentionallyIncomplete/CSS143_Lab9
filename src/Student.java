@@ -15,19 +15,20 @@ import java.io.Serializable;
  * with the overloaded public constructor. When instantiated this object represents a student with a name and GPA
  * and is sorted according to the comparison magnitude between GPA's of students individually.
  */
-public class Student implements Serializable,Comparable<Student> {
-	
+public class Student implements Serializable,Comparable<Student>,Cloneable {
+
 	/**
 	 * Generic SerialID from IDE.
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * Class level data members.
 	 * */
 	private double GPA;
 	private String name;
-	
-	
+
+
 	/**
 	 * @param n - String value represents a student's name (can be first or last).
 	 * @param gpa - A double value represents a GPA for a student.
@@ -41,12 +42,19 @@ public class Student implements Serializable,Comparable<Student> {
 		GPA = gpa;
 	}
 	
+	@Override
+	public Student clone() {
+		return new Student(this);
+	}
+	
+	/*Goes with above method (helper constructor)*/
+
 	@SuppressWarnings("javadoc")
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		
+
 		writeObjectToFile();
 		Student a = readObjectFromFile();
-		
+
 		if(a != null) {
 			System.out.println(a.toString());
 		}
@@ -56,36 +64,18 @@ public class Student implements Serializable,Comparable<Student> {
 	private static Student readObjectFromFile() throws FileNotFoundException, IOException, ClassNotFoundException {
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("data.obj"));
 		Student one = (Student) is.readObject();
-	
 		is.close();
-		
+
 		return one;
 	}
 
 	@SuppressWarnings("javadoc")
 	private static void writeObjectToFile() throws FileNotFoundException, IOException {
 		Student student1 = new Student("student1", 3.5);
-		Student student2 = new Student("student2", 3.4);
-		Student student3 = new Student("student3", 2.5);
-		Student student4 = new Student("student4", 1.5);
-		Student student5 = new Student("student5", 0.2);
-		Student student6 = new Student("student6", 3.6);
-		Student student7 = new Student("student7", 2.8);
-		Student student8 = new Student("student8", 2.9);
-		Student student9 = new Student("student9", 4.0);
-		Student student10 = new Student("student10", 3.5);
-		
+
 		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
 		os.writeObject(student1);
-		os.writeObject(student2);
-		os.writeObject(student3);
-		os.writeObject(student4);
-		os.writeObject(student5);
-		os.writeObject(student6);
-		os.writeObject(student7);
-		os.writeObject(student8);
-		os.writeObject(student9);
-		os.writeObject(student10);
+
 		os.close();		
 	}
 
@@ -103,4 +93,16 @@ public class Student implements Serializable,Comparable<Student> {
 		}
 		return 0;
 	}
+	
+	/** @return - Returns name of Student.	*/
+	public String getName() {	return this.name;	}
+	
+	/** @return - Returns GPA of Student.	*/
+	public double getGPA() {	return this.GPA;	}
+	
+	/** @param newName - A new String for a Student's name.	*/
+	public void setName(String newName) {	this.name = newName;	}
+	
+	/** @param newGPA - A new double value for a Student.	*/
+	public void setGPA(double newGPA) {	this.GPA = newGPA;	}
 }
