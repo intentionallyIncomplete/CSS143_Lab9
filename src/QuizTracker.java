@@ -22,7 +22,6 @@ public class QuizTracker implements Cloneable{
 		for (QuizScore qs : listOfScores) {
 			copyOfScores.add(qs.clone());
 		}
-		
 	}
 	
 	@Override
@@ -35,12 +34,5 @@ public class QuizTracker implements Cloneable{
 	 */
 	public void add(QuizScore newScore) {
 		listOfScores.add(newScore.clone());
-	}
-	
-	/**
-	 * 
-	 */
-	public void setList() {
-		
 	}
 }

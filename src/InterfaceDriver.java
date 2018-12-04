@@ -18,7 +18,7 @@ public class InterfaceDriver {
     //comment and uncomment the demo functions in main to test
     public static void main(String[] args) {
         //comparableDemo();
-        cloneableDemo();
+        //cloneableDemo();
         //serializableDemo();
         //actionListenerDemo();
     }

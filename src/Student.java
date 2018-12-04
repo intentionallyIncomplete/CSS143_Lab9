@@ -16,12 +16,6 @@ import java.io.Serializable;
  * and is sorted according to the comparison magnitude between GPA's of students individually.
  */
 public class Student implements Serializable,Comparable<Student>,Cloneable {
-
-	/**
-	 * Generic SerialID from IDE.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	/**
 	 * Class level data members.
 	 * */
