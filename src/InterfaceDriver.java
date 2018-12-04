@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 //  By Rob Nash
 //
 
+@SuppressWarnings("javadoc")
 public class InterfaceDriver {
 
     //comment and uncomment the demo functions in main to test
@@ -27,12 +28,14 @@ public class InterfaceDriver {
         
     }
     
-    public static void serializableDemo() {
+    @SuppressWarnings("javadoc")
+	public static void serializableDemo() {
         writeObjectsToFile();
         readObjectsFromFile();
     }
     
-    private static void readObjectsFromFile() {
+    @SuppressWarnings("javadoc")
+	private static void readObjectsFromFile() {
         try {
             //ObjectInputStream is = new ObjectInputStream( new FileInputStream("object.dat"));
             ObjectInputStream is = new ObjectInputStream(new FileInputStream("data.obj"));
@@ -51,7 +54,8 @@ public class InterfaceDriver {
         }
     }
     
-    private static void writeObjectsToFile() {
+    @SuppressWarnings("javadoc")
+	private static void writeObjectsToFile() {
         try {
             //ObjectOutputStream os = new ObjectOutputStream( new FileOutputStream("object.dat"));
             ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
@@ -70,7 +74,8 @@ public class InterfaceDriver {
         
     }
 
-    public static void comparableDemo() {
+    @SuppressWarnings("javadoc")
+	public static void comparableDemo() {
         Student a = new Student("Rob", 3.1);
         Student b = new Student("Bill", 3.2);
         Student c = new Student("Mary", 3.0);
@@ -96,12 +101,17 @@ public class InterfaceDriver {
     }
     
     
-    public static void cloneableDemo() {
+    @SuppressWarnings("javadoc")
+	public static void cloneableDemo() {
         Student a = new Student("Evan", 3.0);
         Student c = a.clone();
         
         System.out.println(a);
         System.out.println(c);
+        System.out.println(" The object a (name): " + a.getName());  
+        System.out.println(" The object c (name): " + c.getName());
+        System.out.println(" The object a (gpa): " + a.getGPA());  
+        System.out.println(" The object c (gpa): " + c.getGPA());
         
         System.out.println("Changing object 'a'");
         a.setName("Foo");
@@ -114,6 +124,4 @@ public class InterfaceDriver {
         System.out.println(" The object a (gpa): " + a.getGPA());  
         System.out.println(" The object c (gpa): " + c.getGPA()); 
     }
-    
-    
 }
