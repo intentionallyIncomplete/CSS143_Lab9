@@ -20,7 +20,7 @@ public class InterfaceDriver {
         //comparableDemo();
         //cloneableDemo();
         //serializableDemo();
-        //actionListenerDemo();
+        actionListenerDemo();
     }
     
     public static void actionListenerDemo() {
